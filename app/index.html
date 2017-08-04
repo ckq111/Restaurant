@@ -18,17 +18,6 @@
     </div >
 </div>
 <div class="container">
-
-    <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.display = "block";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.display = "none";
-        }
-    </script>
-
     <div class="row" ng-controller="menuListController as vm">
         <div class="col-lg-1" style="margin-left: -75px; width: 200px">
             <div id="mySidenav" class="sidenav">
@@ -60,5 +49,14 @@
 
 </div>
 
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.display = "none";
+    }
+</script>
 </body>
 </html>
