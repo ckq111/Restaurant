@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="myRestaurant">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Sam's Eatery</title>
+
+    <!-- Style Sheets -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles/AppStyle.css"/>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers.js"></script>
+</head>
+<body>
+<div class="panel panel-primary">
+    <div class="panel-heading" style="font-size:small">
+        <h2 align="center"> Menu : Sam's Kitchen </h2>
+    </div >
+</div>
+<div class="container">
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.display = "block";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.display = "none";
+        }
+    </script>
+
+    <div class="row" ng-controller="menuListController as vm">
+        <div class="col-lg-1" style="margin-left: -75px; width: 200px">
+            <div id="mySidenav" class="sidenav">
+                <h3 style="margin-left: 10px">Select Category</h3>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a ng-href="#" ng-click="vm.setSelectedCategory('Appetizer')">Appetizer</a>
+                <a ng-href="#" ng-click="vm.setSelectedCategory('Tandoori')">Tandoori</a>
+                <a ng-href="#" ng-click="vm.setSelectedCategory('Veg')">Vegetarian Entrees</a>
+                <a ng-href="#" ng-click="vm.setSelectedCategory('Panner')">Paneer Entrees</a>
+            </div>
+
+            <span style="font-size:20px" onclick="openNav()">Select Category</span>
+        </div>
+        <div class="col-lg-5">
+            <ul class="media-list" ng-repeat="dish in vm.dishes | filter:{category: vm.selectedCategory}">
+                <li class="media menu-items" ng-mouseover="vm.setSelectedDish(dish._id)">
+                    {{$index+1}}.  {{dish.name}}
+                    <span style="float: right"> {{dish.price | currency}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-5" style="align-items: center; padding-left: 85px; padding-top: 15px">
+            <label style="font-size: 25px">{{vm.dishes[vm.selectedDish].name}}</label>
+            <img ng-if="vm.dishes[vm.selectedDish].spicy" src="images/redpepper.png" class="img-thumbnail" width="50" style="border: none; margin-bottom: 2px">
+            <img ng-src={{vm.dishes[vm.selectedDish].imageUrl}} height="300">
+            <p style="font-size: 20px; color: #2e6da4">{{vm.dishes[vm.selectedDish].description}}</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
