@@ -13,6 +13,7 @@
         vm.setSelectedDish = function (index) {
             vm.selectedDish = index - 1;
         };
+        // TO Select Category Calling this function from HTML code
         vm.setSelectedCategory = function (category) {
             vm.selectedCategory = category;
         };
