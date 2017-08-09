@@ -1,25 +1,21 @@
 {
-  "name": "MTDB2",
+  "name": "Restaurants",
   "version": "1.0.0",
-  "description": "Website for an awesome restaurant",
+  "description": "Order food online from our best restaurants",
   "main": "index.html",
   "moduleType": [],
   "keywords": [
-    "conFusion",
-    "Fusion",
-    "Restaurant"
+    "rests",
+    "Food",
+    "Order Online"
   ],
   "authors": [
-    "Jogesh Muppala"
+    "Smitkumar Choksi"
   ],
-  "license": "MIT",
-  "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "bootstrap": "~3.3.5",
