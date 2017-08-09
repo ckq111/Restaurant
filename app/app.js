@@ -7,6 +7,7 @@
 
 angular.module('myRestaurant',
     ["common.services",
-    "restaurantMenuMock"]
+    "restaurantMenuMock",
+    "ngAnimate"]
 );
 }());

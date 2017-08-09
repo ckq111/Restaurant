@@ -8,26 +8,28 @@
 
     function MenuListController(restaurantResource) {
         var vm = this;
-        vm.selectedDish = 0;
+        vm.selectedDish = -1;
         vm.selectedCategory = '';
-
-        vm.newDish = {
-            "_id":11,
-            "name":"Rajma Curry is the best",
-            "category":"Veg",
-            "description": "Red kidney beans cooked in a traditional Punjabi style gravy.",
-            "price": 8,
-            "preptime":5,
-            "spicy":true,
-            "imageUrl": "images/rajma.jpg"
-        };
 
         restaurantResource.query(function(data){
             vm.dishes = data;
         });
 
         vm.setSelectedDish = function (index) {
-            vm.selectedDish = index - 1;
+            if(vm.selectedDish === (index - 1))
+                vm.selectedDish = -1;
+            else
+                vm.selectedDish = index - 1;
+        };
+        vm.isDishSelected = function (index) {
+            if(vm.selectedDish === (index - 1))
+                return true;
+        };
+        vm.getImgSrc = function (index) {
+            if(vm.selectedDish === (index - 1))
+                return "images/up.png";
+            else
+                return "images/down.png";
         };
         // TO Select Category Calling this function from HTML code
         vm.setSelectedCategory = function (category) {

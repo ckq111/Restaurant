@@ -50,3 +50,12 @@ body {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+.items-details {
+    transition: all linear 0.2s;
+    background-color: lightsalmon;
+    height: 100px;
+}
+
+.items-details.ng-hide {
+    height: 0;
+}

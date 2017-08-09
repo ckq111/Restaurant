@@ -11,7 +11,7 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-resource/angular-resource.min.js"></script>
     <script src="bower_components/angular-mocks/angular-mocks.js"></script>
-
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="app/app.js"></script>
 
     <!-- Services -->
@@ -42,22 +42,29 @@
 
             <span style="font-size:20px" onclick="openNav()">Select Category</span>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-8">
             <ul class="media-list" ng-repeat="dish in vm.dishes | filter:{category: vm.selectedCategory}">
-                <li class="media menu-items" ng-mouseover="vm.setSelectedDish(dish._id)">
+                <li class="media menu-items">
                     {{$index+1}}.  {{dish.name}}
-                    <span style="float: right"> {{dish.price | currency}}</span>
+                    <span style="float: right"> {{dish.price | currency}}
+                        <img ng-click="vm.setSelectedDish(dish._id)" ng-src={{vm.getImgSrc(dish._id)}} width="25px">
+                    </span>
+                    <div class="container" ng-hide=!vm.isDishSelected(dish._id)  style="align-items: center;">
+                        <div class="row">
+                            <div class="col-sm-2"><img ng-src={{dish.imageUrl}} height="100"></div>
+                            <div class="col-sm-5"><p style="font-size: 20px; color: #2e6da4">{{dish.description}}</p></div>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
-        <div class="col-lg-5" style="align-items: center; padding-left: 85px; padding-top: 15px">
+        <div class="col-lg-5" style="display: none;align-items: center; padding-left: 85px; padding-top: 15px">
             <label style="font-size: 25px">{{vm.dishes[vm.selectedDish].name}}</label>
             <img ng-if="vm.dishes[vm.selectedDish].spicy" src="images/redpepper.png" class="img-thumbnail" width="50" style="border: none; margin-bottom: 2px">
             <img ng-src={{vm.dishes[vm.selectedDish].imageUrl}} height="300">
             <p style="font-size: 20px; color: #2e6da4">{{vm.dishes[vm.selectedDish].description}}</p>
         </div>
     </div>
-
 </div>
 
 <script>
