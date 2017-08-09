@@ -6,11 +6,21 @@
     <title>Sam's Eatery</title>
 
     <!-- Style Sheets -->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="styles/AppStyle.css"/>
-    <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers.js"></script>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/AppStyle.css"/>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+
+    <script src="app/app.js"></script>
+
+    <!-- Services -->
+    <script src="common/services/common.services.js"></script>
+    <script src="common/services/restaurantResources.js"></script>
+    <script src="common/services/restaurantMenuMock.js"></script>
+
+    <script src="app/menuDetails/menuListCtrl.js"></script>
+
 </head>
 <body>
 <div class="panel panel-primary">
