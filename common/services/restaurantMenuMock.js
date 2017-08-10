@@ -142,5 +142,7 @@
 
         var urlOpt2 = "/api/reviews";
         $httpBackend.whenGET(urlOpt2).respond(reviews);
+
+        $httpBackend.whenGET(/app/).passThrough();
     });
 }());

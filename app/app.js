@@ -5,9 +5,26 @@
 (function(){
 "use strict";
 
-angular.module('myRestaurant',
+var app = angular.module('myRestaurant',
     ["common.services",
-    "restaurantMenuMock",
-    "ngAnimate"]
-);
+        "ui.router",
+        "restaurantMenuMock"
+    ]
+    );
+
+    app.config(["$stateProvider","$urlRouterProvider",function ($stateProvider,$urlRouterProvider) {
+        $urlRouterProvider.otherwise("/");
+        $stateProvider
+
+            .state("home",{
+                url:"/",
+                templateUrl:"app/homeView.html"
+
+            })
+            .state("storeFront",{
+                url:"/storedetails",
+                templateUrl:"app/menuDetails/menuDetails.html",
+                controller: "menuListController as vm"
+            })
+    }]);
 }());
