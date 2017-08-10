@@ -32,7 +32,7 @@
     <div class="row" ng-controller="menuListController as vm">
         <div class="col-lg-1" style="margin-left: -75px; width: 200px">
             <div id="mySidenav" class="sidenav">
-                <h3 style="margin-left: 10px">Select Category</h3>
+                <h3 style="margin-left: 5px">Select Category</h3>
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <a ng-href="#" ng-click="vm.setSelectedCategory('Appetizer')">Appetizer</a>
                 <a ng-href="#" ng-click="vm.setSelectedCategory('Tandoori')">Tandoori</a>
@@ -42,27 +42,44 @@
 
             <span style="font-size:20px" onclick="openNav()">Select Category</span>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-7" style="background-color: lightblue; padding: 10px">
+            <h2 style="margin-top: -5px">Food available @ Sam's Kitchen</h2>
             <ul class="media-list" ng-repeat="dish in vm.dishes | filter:{category: vm.selectedCategory}">
                 <li class="media menu-items">
                     {{$index+1}}.  {{dish.name}}
                     <span style="float: right"> {{dish.price | currency}}
-                        <img ng-click="vm.setSelectedDish(dish._id)" ng-src={{vm.getImgSrc(dish._id)}} width="25px">
+                        <img ng-click="vm.setSelectedDish(dish._id)" ng-src={{vm.getImgSrc(dish._id)}} class="img-toggle-details">
                     </span>
-                    <div class="container" ng-hide=!vm.isDishSelected(dish._id)  style="align-items: center;">
+                    <div class="container" ng-hide=!vm.isDishSelected(dish._id)  style="align-items: center; padding: 5px">
                         <div class="row">
                             <div class="col-sm-2"><img ng-src={{dish.imageUrl}} height="100"></div>
-                            <div class="col-sm-5"><p style="font-size: 20px; color: #2e6da4">{{dish.description}}</p></div>
+                            <div class="col-sm-4"><p style="font-size: 20px; color: #2e6da4">{{dish.description}}</p></div>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-        <div class="col-lg-5" style="display: none;align-items: center; padding-left: 85px; padding-top: 15px">
-            <label style="font-size: 25px">{{vm.dishes[vm.selectedDish].name}}</label>
-            <img ng-if="vm.dishes[vm.selectedDish].spicy" src="images/redpepper.png" class="img-thumbnail" width="50" style="border: none; margin-bottom: 2px">
-            <img ng-src={{vm.dishes[vm.selectedDish].imageUrl}} height="300">
-            <p style="font-size: 20px; color: #2e6da4">{{vm.dishes[vm.selectedDish].description}}</p>
+        <div class="col-lg-3" style="width: 350px">
+            <h2 style="margin-top: -5px">User Reviews</h2>
+            <ul class="media" ng-repeat="review in vm.reviews" style="margin-left: -25px;margin-top: 5px">
+                <li class="media-list">
+                    <div class="media-left">
+                        <div style="background-color: darkorange; border-radius: 45px; width: 70px; height:70px; align-items: center">
+                            <label style="padding-left: 28px;padding-top: 15px;font-size: 30px; font-family: 'Agency FB'">{{review.name[0]}}</label>
+                        </div>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{review.name}}</h4>
+                        <h5>{{review.title}}</h5>
+                        <p>{{review.description}}</p>
+                        <img ng-src={{vm.getStarImg(1,review.ratings)}} width="20px">
+                        <img ng-src={{vm.getStarImg(2,review.ratings)}} width="20px">
+                        <img ng-src={{vm.getStarImg(3,review.ratings)}} width="20px">
+                        <img ng-src={{vm.getStarImg(4,review.ratings)}} width="20px">
+                        <img ng-src={{vm.getStarImg(5,review.ratings)}} width="20px">
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

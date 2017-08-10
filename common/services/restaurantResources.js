@@ -2,10 +2,16 @@
     "use strict";
     angular
         .module("common.services")
-        .factory("restaurantResource",["$resource",restaurantResource]);
+        .service("restaurantResource",["$resource",restaurantResource]);
 
     function restaurantResource($resource){
-        return $resource ("/api/dishes/",null,  {'update':{method:'PUT' }});
+        function getRestaurantInfoFor(resString) {
+            return $resource ("/api/"+resString+"/",null,  {'update':{method:'PUT' }});
+        }
+
+        return{
+            getRestaurantInfoFor:getRestaurantInfoFor
+        }
     }
 
 }());

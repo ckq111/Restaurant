@@ -11,7 +11,7 @@
         vm.selectedDish = -1;
         vm.selectedCategory = '';
 
-        restaurantResource.query(function(data){
+        restaurantResource.getRestaurantInfoFor('dishes').query(function(data){
             vm.dishes = data;
         });
 
@@ -35,6 +35,33 @@
         vm.setSelectedCategory = function (category) {
             vm.selectedCategory = category;
         };
+
+
+        //Everything related to customer reviews start from here!!!
+        restaurantResource.getRestaurantInfoFor('reviews').query(function(data){
+            vm.reviews = data;
+        });
+
+
+        vm.getRandomColor = function () {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            color += 'F';
+            color += 'F';
+            color += 'C';
+            for (var i = 0; i < 3; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            //alert(color)
+            return color;
+        };
+
+        vm.getStarImg = function (starIndex, ratings) {
+            if(starIndex <= ratings)
+                return "images/yello-star.png";
+            else
+                return "images/black-star.png";
+        }
         /*
         vm.dishes=[
             {

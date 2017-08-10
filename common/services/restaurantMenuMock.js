@@ -5,12 +5,13 @@
                 .module("restaurantMenuMock",["ngMockE2E"]);
 
     app.run(function($httpBackend){
-         var dishes=[
+         var dishes=
+             [
              {
                  "_id":1,
                  "name":"Vegetable Samosas (2 Pieces)",
                  "category":"Appetizer",
-                 "description": "Crispy golden brown triangle pastry stuffed with mildly spiced potatoes and peas.",
+                 "description":"Crispy golden brown triangle pastry stuffed with mildly spiced potatoes and peas.",
                  "price": 4,
                  "preptime":5,
                  "spicy":false,
@@ -24,7 +25,7 @@
                  "price": 6,
                  "preptime":5,
                  "spicy":true,
-                 "imageUrl": "images/vadapav.jpg"
+                 "imageUrl": "images/vsamosa.jpg"
              },
              {
                  "_id":3,
@@ -34,7 +35,7 @@
                  "price": 6,
                  "preptime":5,
                  "spicy":true,
-                 "imageUrl": "images/vsamosa.jpg"
+                 "imageUrl": "images/vadapav.jpg"
              },
              {
                  "_id":4,
@@ -109,13 +110,37 @@
 
          ];
 
-        var emplUrl = "/api/dishes";
-        $httpBackend.whenGET(emplUrl).respond(dishes);
+         var reviews = [
+             {
+                 "name":"Mellisa",
+                 "title":"Good Place- nice food",
+                 "description":"Fast Delivery. Hot food. Reasonable prices",
+                 "ratings":4
+             },
+             {
+                 "name":"Sam",
+                 "title":"Good Place- nice food",
+                 "description":"Fast Delivery. Hot food. Reasonable prices-Fast Delivery. Hot food. Reasonable prices-Fast Delivery. Hot food. Reasonable prices-Fast Delivery. Hot food. Reasonable prices",
+                 "ratings":4
+             },
+             {
+                 "name":"Chigs",
+                 "title":"Good Place- nice food",
+                 "description":"Fast Delivery. Hot food. Reasonable prices",
+                 "ratings":1
+             },
+             {
+                 "name":"Uv",
+                 "title":"Good Place- nice food",
+                 "description":"Fast Delivery. Hot food. Reasonable prices",
+                 "ratings":1
+             }
+         ];
 
-        $httpBackend.whenPOST('/dishes').respond(function(method, url, data, headers){
-            console.log('Received these data:', method, url, data, headers);
-            dishes.push(angular.fromJson(data));
-            return [200, {}, {}];
-        });
+        var urlOpt1 = "/api/dishes";
+        $httpBackend.whenGET(urlOpt1).respond(dishes);
+
+        var urlOpt2 = "/api/reviews";
+        $httpBackend.whenGET(urlOpt2).respond(reviews);
     });
 }());

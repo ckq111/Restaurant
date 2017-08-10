@@ -50,6 +50,16 @@ body {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+
+.img-toggle-details{
+    width: 12px;
+    height: 15px;
+    margin-bottom: 2px
+}
+.img-toggle-details:hover{
+    width: 22px;
+    height: 25px;
+}
 .items-details {
     transition: all linear 0.2s;
     background-color: lightsalmon;
@@ -58,4 +68,10 @@ body {
 
 .items-details.ng-hide {
     height: 0;
+}
+h4{
+    color: saddlebrown;
+}
+.media-body h5{
+    color: blue;
 }
