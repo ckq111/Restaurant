@@ -26,5 +26,18 @@ var app = angular.module('myRestaurant',
                 templateUrl:"app/menuDetails/menuDetails.html",
                 controller: "menuListController as vm"
             })
+            .state("dishDetail",{
+                url:"/dishDetails/:dishId",
+                templateUrl:"app/menuDetails/dishInfo.html",
+                controller: "menuItemInfoController as vm",
+                resolve:{
+                    restaurantResource :"restaurantResource", //defining dependency, key name can be any name
+                    dish: function(restaurantResource,$stateParams) {
+
+                        var dishId = $stateParams.dishId;
+                        return restaurantResource.getRestaurantInfoFor('dishes').get({dishId: dishId}).$promise;
+                    }
+                }
+            })
     }]);
 }());

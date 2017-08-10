@@ -143,6 +143,21 @@
         var urlOpt2 = "/api/reviews";
         $httpBackend.whenGET(urlOpt2).respond(reviews);
 
+        var editingRegex = new RegExp(urlOpt1+ "/[0-9][0-9]*",'');
+
+        $httpBackend.whenGET(editingRegex).respond(function(method,url,data){
+
+
+            var dish = {"dishId":0};
+            var parameters=url.split('/');
+            var length = parameters.length;
+            var id = parameters[length - 1];
+            dish = dishes[id];
+
+            return [200,dish,{}];
+
+        });
+
         $httpBackend.whenGET(/app/).passThrough();
     });
 }());

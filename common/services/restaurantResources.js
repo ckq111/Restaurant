@@ -5,8 +5,9 @@
         .service("restaurantResource",["$resource",restaurantResource]);
 
     function restaurantResource($resource){
+
         function getRestaurantInfoFor(resString) {
-            return $resource ("/api/"+resString+"/",null,  {'update':{method:'PUT' }});
+            return $resource ("/api/"+resString+"/:dishId");
         }
 
         return{

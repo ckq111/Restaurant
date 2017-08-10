@@ -43,7 +43,7 @@
         });
 
 
-        vm.getRandomColor = function () {
+        /*vm.getRandomColor = function () {
             var letters = '0123456789ABCDEF';
             var color = '#';
             color += 'F';
@@ -54,7 +54,7 @@
             }
             //alert(color)
             return color;
-        };
+        };*/
 
         vm.getStarImg = function (starIndex, ratings) {
             if(starIndex <= ratings)

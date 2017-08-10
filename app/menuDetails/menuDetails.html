@@ -12,10 +12,10 @@
         <span style="font-size:20px" onclick="openNav()">Select Category</span>
     </div>
     <div class="col-lg-7" style="padding: 10px">
-        <h2 style="margin-top: -5px">Food available @ Sam's Kitchen</h2>
+        <h2 class="well" style="margin-top: -5px">Food available @ Sam's Kitchen</h2>
         <ul class="media-list" ng-repeat="dish in vm.dishes | filter:{category: vm.selectedCategory}">
             <li class="media menu-items">
-                {{$index+1}}.  {{dish.name}}
+                {{$index+1}}.  <a ui-sref="dishDetail({dishId: dish._id})">{{dish.name}}</a>
                 <span style="float: right"> {{dish.price | currency}}
                         <img ng-click="vm.setSelectedDish(dish._id)" ng-src={{vm.getImgSrc(dish._id)}} class="img-toggle-details">
                     </span>
