@@ -4,10 +4,28 @@
 (function () {
     'use strict';
     angular.module('myRestaurant')
-        .controller('menuItemInfoController',['dish',MenuItemInfoController]);
+        .controller('menuItemInfoController',['dish',"$state",MenuItemInfoController]);
 
-    function MenuItemInfoController(dish){
+    function MenuItemInfoController(dish,$state){
         var vm = this;
         vm.dish = dish;
+
+        // Using JSON.parse & JSON.stringify to completely copy object not by referance
+        vm.dishOriginal = JSON.parse(JSON.stringify(vm.dish));
+        vm.isEditModeOn = false;
+        vm.toggleEditMode = function () {
+          vm.isEditModeOn = !vm.isEditModeOn;
+          //vm.dish = JSON.parse(JSON.stringify(vm.dishOriginal));
+            vm.dish.category = vm.dishOriginal.category;
+            vm.dish.price = vm.dishOriginal.price;
+            vm.dish.description = vm.dishOriginal.description;
+        };
+        vm.submit = function () {
+            vm.dish.$save(function(){
+                //toastr.success("Record Saved Successfully");
+                alert("Saved Data Successfully!");
+                $state.go('storeFront');
+            });
+        }
     }
 })();

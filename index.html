@@ -21,17 +21,18 @@
 
     <script src="app/menuDetails/menuListCtrl.js"></script>
     <script src="app/menuDetails/dishInfoCtrl.js"></script>
+    <script src="app/menuDetails/newDishEntryCtrl.js"></script>
 
 </head>
 <body>
 
 <div class="center">
-    <img class="img-circle img-responsive" width="150" src="images/logo.png">
+    <img class="img-circle img-responsive" width="100" src="images/logo.png">
 </div>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse custom-navs-style">
     <div class="container">
-        <a class="navbar-brand" ui-sref="home">Sam's Kitchen Store Front</a>
+        <a class="navbar-brand" ui-sref="home" style="font-size: larger; font-weight: bold">Sam's Kitchen Store Front</a>
         <div class="navbar-header">
             <button type="button"
                     class="navbar-toggle"
@@ -46,6 +47,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a ui-sref="storeFront">Menu</a></li>
+                <li><a ui-sref="newDish({dishId:0})">New Dish</a></li>
                 <!--<li><a ui-sref="emplEdit{emplId:0}"><i class="glyphicon glyphicon-plus"></i> Add Employee </a></li>-->
             </ul>
         </div>

@@ -77,8 +77,17 @@ h4{
 }
 .center {
     margin: auto;
-    width: 12%;
+    width: 8%;
     border: 2px dashed green;
     border-radius: 25px;
+}
+.edit-dish-input{
+    width: 300px;
+}
 
+.custom-navs-style{
+    background-color: #2b542c;
+    font-family: 'Helvetica';
+    font-size: large;
+    border: 2px solid whitesmoke
 }

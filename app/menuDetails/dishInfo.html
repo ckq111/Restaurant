@@ -1,10 +1,65 @@
-<div class="media" style="font-size: larger">
-    <h1> Dish details </h1>
+<div class="media" style="font-size: larger" ng-if="!vm.isEditModeOn">
     <div class="media-body">
         <h3 class="media-heading well">{{vm.dish.name}}</h3>
         <p>{{vm.dish.description}}</p>
+        <p>{{vm.dish.category}}</p>
+        <p>{{vm.dish.price | currency}}</p>
+        <button class="btn btn-primary btn-md" ng-click="vm.toggleEditMode()">Edit</button>
     </div>
     <div class="media-right">
-        <img ng-src={{vm.dish.imageUrl}}>
+        <img ng-src={{vm.dish.imageUrl}} width="450" style="border: 1px solid sandybrown; margin-right: 30px">
+    </div>
+</div>
+
+<div class="media" style="font-size: larger" ng-if="vm.isEditModeOn">
+    <div class="media-body">
+        <form name="dishForm" class="form-horizontal">
+            <h3 class="media-heading well">{{vm.dish.name}}</h3>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Price</label>
+                <div class="col-md-2">
+            <input type="text"
+                       ng-model="vm.dish.price" class="form-control edit-dish-input" value="{{vm.dish.price | currency}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="category">Select category</label>
+                <div class="col-md-2">
+                    <select class="form-control edit-dish-input" id="category" ng-model="vm.dish.category">
+                        <option>Appetizer</option>
+                        <option>Tandoori</option>
+                        <option>Panner</option>
+                        <option>Veg</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Dish Description</label>
+                <div class="col-md-2">
+                <textarea rows="8"
+                      placeholder="Fancy details higher sale"
+                          ng-model="vm.dish.description"
+                      class="form-control edit-dish-input">{{vm.dish.description}}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary"
+                            style="width:80px;margin-right: 10px"
+                            ng-click="vm.submit()">Save
+                    </button>
+
+                    <button class="btn btn-danger"
+                            style="width:80px;margin-right: 10px"
+                            ng-click="vm.toggleEditMode()">Cancel
+                    </button>
+                </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="media-right">
+        <img ng-src={{vm.dish.imageUrl}} width="450" style="border: 1px solid sandybrown">
     </div>
 </div>

@@ -146,18 +146,40 @@
         var editingRegex = new RegExp(urlOpt1+ "/[0-9][0-9]*",'');
 
         $httpBackend.whenGET(editingRegex).respond(function(method,url,data){
-
-
             var dish = {"dishId":0};
+
             var parameters=url.split('/');
             var length = parameters.length;
             var id = parameters[length - 1];
-            dish = dishes[id];
+
+            if(id>0){
+                dish = dishes[id-1];
+            }
 
             return [200,dish,{}];
 
         });
+        $httpBackend.whenPOST(urlOpt1).respond(function(method,url,data){
+            var dish = angular.fromJson(data);
 
+            if (!dish._id) {
+                // new employee Id
+                dish._id = dishes[dishes.length - 1]._id + 1;
+                dishes.push(dish);
+            }
+            else{
+                for (var i = 0; i < dishes.length; i++) {
+                    if (dishes[i]._id === dish._id) {
+                        dishes[i] = dish;
+                        break;
+                    }
+                }
+            }
+
+
+            return [200, dish, {}];
+
+        });
         $httpBackend.whenGET(/app/).passThrough();
     });
 }());

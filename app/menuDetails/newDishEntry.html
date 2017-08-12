@@ -1,0 +1,47 @@
+<h1> Got a new Dish! Enter details below!!! </h1>
+<form name="dishForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-md-2 control-label">Dish Name</label>
+        <div class="col-md-2">
+            <input type="text"
+                   placeholder="Give Some mouth watering name"
+                   ng-model="vm.dish.name" class="form-control edit-dish-input"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="category">Select category</label>
+        <div class="col-md-2">
+            <select class="form-control edit-dish-input" id="category" ng-model="vm.dish.category">
+                <option>Appetizer</option>
+                <option>Tandoori</option>
+                <option>Panner</option>
+                <option>Veg</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Dish Description</label>
+        <div class="col-md-2">
+            <textarea rows="8"
+                   placeholder="Fancy details higher sale"
+                      ng-model="vm.dish.description" class="form-control edit-dish-input"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Price</label>
+        <div class="col-md-2">
+            <input type="text"
+                   ng-model="vm.dish.price" class="form-control edit-dish-input">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary"
+                            style="width:80px;margin-right: 10px"
+                            ng-click="vm.submit()">Save
+                    </button>
+                </span>
+        </div>
+    </div>
+</form>
