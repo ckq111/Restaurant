@@ -10,6 +10,7 @@
         var vm = this;
         vm.dish = dish;
 
+        // similar to dishInfo this will save new dish.
         vm.submit = function () {
             vm.dish.$save(function(){
                 alert("Saved Data Successfully!");

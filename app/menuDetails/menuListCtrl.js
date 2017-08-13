@@ -11,20 +11,26 @@
         vm.selectedDish = -1;
         vm.selectedCategory = '';
 
+        // getRestaurantInfoFor to modify api/"data" means supply dishes or reviews to get required data
         restaurantResource.getRestaurantInfoFor('dishes').query(function(data){
             vm.dishes = data;
         });
 
+        // for quick info access - invoking this function will set currently selected dish
         vm.setSelectedDish = function (index) {
             if(vm.selectedDish === (index - 1))
                 vm.selectedDish = -1;
             else
                 vm.selectedDish = index - 1;
         };
+
+        // to check if specified index dish is currently selected or not
         vm.isDishSelected = function (index) {
             if(vm.selectedDish === (index - 1))
                 return true;
         };
+
+        // Select appropriate image depending upon state of quick info.
         vm.getImgSrc = function (index) {
             if(vm.selectedDish === (index - 1))
                 return "images/up.png";
@@ -38,24 +44,14 @@
 
 
         //Everything related to customer reviews start from here!!!
+        // *****************************************************
+
         restaurantResource.getRestaurantInfoFor('reviews').query(function(data){
             vm.reviews = data;
         });
 
-
-        /*vm.getRandomColor = function () {
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-            color += 'F';
-            color += 'F';
-            color += 'C';
-            for (var i = 0; i < 3; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            //alert(color)
-            return color;
-        };*/
-
+        // As response javascript object knows how much rating is there.
+        // this will set rating images accordingly
         vm.getStarImg = function (starIndex, ratings) {
             if(starIndex <= ratings)
                 return "images/yello-star.png";

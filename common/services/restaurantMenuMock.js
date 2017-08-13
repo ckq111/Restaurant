@@ -112,10 +112,16 @@
 
          var reviews = [
              {
-                 "name":"Mellisa",
+                 "name":"Ross",
                  "title":"Good Place- nice food",
                  "description":"Fast Delivery. Hot food. Reasonable prices",
                  "ratings":4
+             },
+             {
+                 "name":"Sena",
+                 "title":"bad Place- nice food",
+                 "description":"Fast Delivery. Hot food. Reasonable prices",
+                 "ratings":1
              },
              {
                  "name":"Sam",
@@ -124,13 +130,7 @@
                  "ratings":4
              },
              {
-                 "name":"Chigs",
-                 "title":"Good Place- nice food",
-                 "description":"Fast Delivery. Hot food. Reasonable prices",
-                 "ratings":1
-             },
-             {
-                 "name":"Uv",
+                 "name":"John",
                  "title":"Good Place- nice food",
                  "description":"Fast Delivery. Hot food. Reasonable prices",
                  "ratings":1
