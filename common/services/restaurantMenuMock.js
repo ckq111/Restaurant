@@ -163,7 +163,7 @@
             var dish = angular.fromJson(data);
 
             if (!dish._id) {
-                // new employee Id
+                // new dish Id
                 dish._id = dishes[dishes.length - 1]._id + 1;
                 dishes.push(dish);
             }

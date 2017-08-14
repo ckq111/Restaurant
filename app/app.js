@@ -23,8 +23,16 @@ var app = angular.module('myRestaurant',
             })
             .state("storeFront",{
                 url:"/storedetails",
-                templateUrl:"app/menuDetails/menuDetails.html",
-                controller: "menuListController as vm"
+                views:{
+                    '':{
+                        templateUrl:"app/menuDetails/menuDetails.html",
+                        controller: "menuListController as vm"
+                    },
+                    'reviews@storeFront': {
+                        templateUrl: 'app/menuDetails/restReviewsView.html',
+                        controller: 'reviewController as vm'
+                    }
+                }
             })
             .state("dishDetail",{
                 url:"/dishDetails/:dishId",

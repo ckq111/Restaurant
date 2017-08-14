@@ -1,4 +1,4 @@
-<div class="row" ng-controller="menuListController as vm">
+<div class="row">
     <div class="col-lg-1" style="margin-left: -75px; width: 200px">
         <div id="mySidenav" class="sidenav">
             <h3 style="margin-left: 5px">Select Category</h3>
@@ -29,26 +29,8 @@
         </ul>
     </div>
     <div class="col-xs-3" style="width: 350px">
-        <h2 style="margin-top: -5px">User Reviews</h2>
-        <ul class="media" ng-repeat="review in vm.reviews" style="margin-left: -25px;margin-top: 5px">
-            <li class="media-list">
-                <div class="media-left">
-                    <div style="background-color: darkorange; border-radius: 45px; width: 70px; height:70px; align-items: center">
-                        <label style="padding-left: 28px;padding-top: 15px;font-size: 30px; font-family: 'Agency FB'">{{review.name[0]}}</label>
-                    </div>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading">{{review.name}}</h4>
-                    <h5>{{review.title}}</h5>
-                    <p>{{review.description}}</p>
-                    <img ng-src={{vm.getStarImg(1,review.ratings)}} width="20px">
-                    <img ng-src={{vm.getStarImg(2,review.ratings)}} width="20px">
-                    <img ng-src={{vm.getStarImg(3,review.ratings)}} width="20px">
-                    <img ng-src={{vm.getStarImg(4,review.ratings)}} width="20px">
-                    <img ng-src={{vm.getStarImg(5,review.ratings)}} width="20px">
-                </div>
-            </li>
-        </ul>
+        <!-- View usref will come here!! -->
+        <div ui-view="reviews"></div>
     </div>
 </div>
 
