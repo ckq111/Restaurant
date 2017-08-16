@@ -8,7 +8,9 @@
 var app = angular.module('myRestaurant',
     ["common.services",
         "ui.router",
-        "restaurantMenuMock"
+        "restaurantMenuMock",
+        "ui.mask",
+        "ngMessages"
     ]
     );
 
@@ -18,8 +20,16 @@ var app = angular.module('myRestaurant',
 
             .state("home",{
                 url:"/",
-                templateUrl:"app/homeView.html"
-
+                templateUrl:"app/homeView.html",
+                controller:"HomeViewController as vm"
+            })
+            .state("home.userSignUp",{
+                url:"/signUpUser",
+                templateUrl:"app/UserDetails/userSignUpForm.html"
+            })
+            .state("home.merchantSignUp",{
+                url:"/signUpMerchant",
+                templateUrl:"app/UserDetails/merchantSignUpForm.html"
             })
             .state("storeFront",{
                 url:"/storedetails",

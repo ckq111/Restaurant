@@ -1,0 +1,152 @@
+<h1>open your menu online!!!</h1>
+
+<form name="merchantForm" class="form-horizontal">
+    <fieldset>
+        <legend>Persoanl Information</legend>
+    <div class="form-group">
+        <label class="col-md-2 control-label" style="text-align: left">UserID</label>
+        <div class="col-md-2">
+            <input type="text"
+                   placeholder="UserID"
+                   ng-model="vm.merchant.userId" class="form-control edit-dish-input"/>
+        </div>
+    </div>
+
+    <div class="form-group"
+         ng-class="{'has-error':merchantForm.emailid.$invalid && !merchantForm.emailid.$pristine}">
+        <label for="emailid" class="col-md-2 control-label" style="text-align: left">Email</label>
+        <div class="col-md-2">
+            <input type="email" id="emailid" name="emailid"
+                   ng-model="vm.merchant.email" class="form-control edit-dish-input" required>
+        </div>
+        <span ng-show="(merchantForm.emailid.$invalid && !merchantForm.emailid.$pristine) || (merchantForm.emailid.$error.required && !merchantForm.emailid.$pristine)" class="help-block validation-msg-span-merchant">Enter a valid email address.</span>
+    </div>
+    <div class="form-group"
+         ng-class="{'has-error':merchantForm.phoneNumber.$invalid && merchantForm.phoneNumber.$dirty}">
+        <label for="phoneNumber" class="col-md-2 control-label" style="text-align: left">Phone</label>
+        <div class="col-md-2">
+            <input type="text" id="phoneNumber" name="phoneNumber"
+                   ng-model="vm.merchant.phone" class="form-control edit-dish-input"
+                   ui-mask="999-999-9999" required/>
+        </div>
+        <span class="help-block has-error validation-msg-span-merchant"
+              ng-show="merchantForm.phoneNumber.$invalid">
+              Phone required
+        </span>
+    </div>
+    <div class="form-group"
+         ng-class="{'has-error':merchantForm.password.$invalid && merchantForm.password.$dirty}">
+        <label for="password" class="col-md-2 control-label" style="text-align: left">Create a password</label>
+        <div class="col-md-2">
+            <input type="password" id="password" name="password"
+                   ng-model="vm.merchant.password" class="form-control edit-dish-input"
+                   required
+                   ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8}$/"/>
+        </div>
+        <div ng-messages="merchantForm.password.$error">
+            <span ng-show="merchantForm.password.$error.required && !merchantForm.password.$pristine" class="help-block has-error validation-msg-span-merchant">Enter Valid Password!</span>
+            <span class="help-block has-error validation-msg-span-merchant" ng-message="pattern">Password should be exact 8 characters long
+                and should contain one number,one character and one special
+                character
+            </span>
+        </div>
+    </div>
+    <div class="form-group"
+         ng-class="{'has-error':merchantForm.confirmpassword.$invalid && merchantForm.confirmpassword.$dirty}">
+        <label for="confirmpassword" class="col-md-2 control-label" style="text-align: left">Confirm password</label>
+        <div class="col-md-2">
+            <input ng-model="vm.confirmPassword" id="confirmpassword" name="confirmpassword"
+                   type="password" class="form-control edit-dish-input"/>
+        </div>
+        <span ng-if="!vm.isPwdMatches()" class="help-block has-error validation-msg-span-merchant">Password doesn't match!</span>
+    </div>
+    </fieldset>
+    <fieldset>
+        <legend>Restaurant Details</legend>
+        <div class="form-group"
+             ng-class="{'has-error':merchantForm.restName.$invalid && merchantForm.restName.$dirty}">
+            <label for="restName" class="col-md-2 control-label" style="text-align: left">Restaurant Name</label>
+            <div class="col-md-2">
+                <input type="text"
+                       placeholder="Name" id="restName" name="restName"
+                       ng-model="vm.merchant.restName" class="form-control edit-dish-input" required/>
+            </div>
+            <span ng-show="merchantForm.restName.$error.required && !merchantForm.restName.$pristine"
+                  class="help-block has-error validation-msg-span-merchant">
+                    Name can not be empty!
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="type" style="text-align: left">Select Restaurant type</label>
+            <div class="col-md-2">
+                <select class="form-control edit-dish-input" id="type" ng-model="vm.merchant.resType">
+                    <option>Indian</option>
+                    <option>Mexican</option>
+                    <option>Thai</option>
+                </select>
+            </div>
+        </div>
+        <!--// Address Line 1-->
+        <div class="form-group"
+             ng-class="{'has-error':merchantForm.address1.$invalid && merchantForm.address1.$dirty}">
+            <label for="address1" class="col-md-2 control-label" style="text-align: left">Address Line 1</label>
+            <div class="col-md-2">
+                <input type="text"
+                       id="address1" name="address1"
+                       ng-model="vm.merchant.restName" class="form-control edit-dish-input" required/>
+            </div>
+            <span ng-show="merchantForm.address1.$error.required && !merchantForm.address1.$pristine"
+                  class="help-block has-error validation-msg-span-merchant">
+                    Address Line 1 can not be empty!
+            </span>
+        </div>
+        <!--// Address Line 2-->
+        <div class="form-group">
+            <label for="address2" class="col-md-2 control-label" style="text-align: left">Address Line 2 (OPTIONAL)</label>
+            <div class="col-md-2">
+                <input type="text"
+                       id="address2" name="address2"
+                       ng-model="vm.merchant.restName" class="form-control edit-dish-input" required/>
+            </div>
+        </div>
+        <!--Select City-->
+        <div class="form-group">
+            <label for="city" class="col-md-2 control-label" style="text-align: left">Select city</label>
+            <div class="col-md-2">
+                <input type="text"
+                       id="city" name="city"
+                       ng-model="vm.merchant.restName" class="form-control edit-dish-input" required/>
+            </div>
+        </div>
+        <!--// Select State-->
+        <div class="form-group">
+            <label for="state" class="col-md-2 control-label" style="text-align: left">Select State</label>
+            <div class="col-md-2">
+                <input type="text"
+                       id="state" name="state"
+                       ng-model="vm.merchant.restName" class="form-control edit-dish-input" required/>
+            </div>
+        </div>
+        <!--// Country Pre-defined-->
+        <div class="form-group">
+            <label class="col-md-2 control-label" style="text-align: left">Country</label>
+            <div class="col-md-2">
+                <input type="text" value="USA"
+                       ng-model="vm.merchant.restName" class="form-control edit-dish-input" readonly/>
+            </div>
+        </div>
+
+    </fieldset>
+    <div class="form-group">
+        <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary"
+                            style="width:80px;margin-right: 10px"
+                            ng-click="">Save
+                    </button>
+                </span>
+        </div>
+    </div>
+
+</form>

@@ -83,8 +83,14 @@ h4{
 }
 .edit-dish-input{
     width: 300px;
+    font-size: 15px;
 }
-
+.validation-msg-span{
+    margin-left: 520px;
+}
+.validation-msg-span-merchant{
+    margin-left: 520px;
+}
 .custom-navs-style{
     background-color: #2b542c;
     font-family: 'Helvetica';

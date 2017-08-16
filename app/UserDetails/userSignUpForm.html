@@ -1,0 +1,72 @@
+<h1>Signup now to place your first order</h1>
+
+<form name="userForm" class="form-horizontal">
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">UserID</label>
+        <div class="col-md-2">
+            <input type="text"
+                   placeholder="UserID"
+                   ng-model="vm.user.userId" class="form-control edit-dish-input"/>
+        </div>
+    </div>
+
+    <div class="form-group"
+         ng-class="{'has-error':userForm.emailid.$invalid && !userForm.emailid.$pristine}">
+        <label for="emailid" class="col-md-2 control-label">Email</label>
+        <div class="col-md-2">
+            <input type="email" id="emailid" name="emailid"
+                   ng-model="vm.user.email" class="form-control edit-dish-input" required>
+        </div>
+        <span ng-show="(userForm.emailid.$invalid && !userForm.emailid.$pristine) || (userForm.emailid.$error.required && !userForm.emailid.$pristine)" class="help-block validation-msg-span">Enter a valid email address.</span>
+    </div>
+    <div class="form-group"
+         ng-class="{'has-error':userForm.phoneNumber.$invalid && userForm.phoneNumber.$dirty}">
+        <label for="phoneNumber" class="col-md-2 control-label">Phone</label>
+        <div class="col-md-2">
+            <input type="text" id="phoneNumber" name="phoneNumber"
+                   ng-model="vm.user.phone" class="form-control edit-dish-input"
+                   ui-mask="999-999-9999" required/>
+        </div>
+        <span class="help-block has-error validation-msg-span"
+              ng-show="userForm.phoneNumber.$invalid">
+              Phone required
+        </span>
+    </div>
+    <div class="form-group"
+         ng-class="{'has-error':userForm.password.$invalid && userForm.password.$dirty}">
+        <label for="password" class="col-md-2 control-label">Create a password</label>
+        <div class="col-md-2">
+            <input type="password" id="password" name="password"
+                   ng-model="vm.user.password" class="form-control edit-dish-input"
+                   required
+                   ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8}$/"/>
+        </div>
+        <div ng-messages="userForm.password.$error">
+            <span ng-message="required" class="help-block has-error validation-msg-span">Enter Valid Password!</span>
+            <span class="help-block has-error validation-msg-span" ng-message="pattern">Password should be exact 8 characters long
+                and should contain one number,one character and one special
+                character
+            </span>
+        </div>
+    </div>
+    <div class="form-group"
+         ng-class="{'has-error':userForm.confirmpassword.$invalid && userForm.confirmpassword.$dirty}">
+        <label for="confirmpassword" class="col-md-2 control-label">Confirm your password</label>
+        <div class="col-md-2">
+            <input ng-model="vm.confirmPassword" id="confirmpassword" name="confirmpassword"
+                   type="password" class="form-control edit-dish-input"/>
+        </div>
+        <span ng-if="!vm.isPwdMatches()" class="help-block has-error validation-msg-span">Password doesn't match!</span>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary"
+                            style="width:80px;margin-right: 10px"
+                            ng-click="vm.submit()">Save
+                    </button>
+                </span>
+        </div>
+    </div>
+</form>

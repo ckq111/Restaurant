@@ -1,3 +1,24 @@
 <h1> Welcome to Sam's Kitchen StoreFront </h1>
 <h2> View, Edit and Analyse your Online Menu! </h2>
 <h3> Observe user review for more business!!!</h3>
+
+<div ng-if="!vm.isGetttingStartClicked" >
+    <button class="btn btn-primary" ng-click="vm.isGetttingStartClicked = true">Getting Started</button>
+</div>
+
+<div ng-if="vm.isGetttingStartClicked">
+    <div class="panel-body">
+        <div >
+            <a ui-sref=".userSignUp"
+               ui-sref-active="active" class="btn btn-primary">
+                New User
+            </a>
+            <a ui-sref=".merchantSignUp"
+               ui-sref-active="active" class="btn btn-primary">
+                New Merchant
+            </a>
+        </div>
+        <div ui-view></div>
+    </div>
+</div>
+
