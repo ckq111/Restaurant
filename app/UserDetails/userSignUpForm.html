@@ -3,7 +3,7 @@
 <form name="userForm" class="form-horizontal">
 
     <div class="form-group">
-        <label class="col-md-2 control-label">UserID</label>
+        <label class="col-md-2 control-label" style="text-align: left">UserID</label>
         <div class="col-md-2">
             <input type="text"
                    placeholder="UserID"
@@ -13,7 +13,7 @@
 
     <div class="form-group"
          ng-class="{'has-error':userForm.emailid.$invalid && !userForm.emailid.$pristine}">
-        <label for="emailid" class="col-md-2 control-label">Email</label>
+        <label for="emailid" class="col-md-2 control-label" style="text-align: left">Email</label>
         <div class="col-md-2">
             <input type="email" id="emailid" name="emailid"
                    ng-model="vm.user.email" class="form-control edit-dish-input" required>
@@ -22,7 +22,7 @@
     </div>
     <div class="form-group"
          ng-class="{'has-error':userForm.phoneNumber.$invalid && userForm.phoneNumber.$dirty}">
-        <label for="phoneNumber" class="col-md-2 control-label">Phone</label>
+        <label for="phoneNumber" class="col-md-2 control-label" style="text-align: left">Phone</label>
         <div class="col-md-2">
             <input type="text" id="phoneNumber" name="phoneNumber"
                    ng-model="vm.user.phone" class="form-control edit-dish-input"
@@ -35,7 +35,7 @@
     </div>
     <div class="form-group"
          ng-class="{'has-error':userForm.password.$invalid && userForm.password.$dirty}">
-        <label for="password" class="col-md-2 control-label">Create a password</label>
+        <label for="password" class="col-md-2 control-label" style="text-align: left">Create a password</label>
         <div class="col-md-2">
             <input type="password" id="password" name="password"
                    ng-model="vm.user.password" class="form-control edit-dish-input"
@@ -52,7 +52,7 @@
     </div>
     <div class="form-group"
          ng-class="{'has-error':userForm.confirmpassword.$invalid && userForm.confirmpassword.$dirty}">
-        <label for="confirmpassword" class="col-md-2 control-label">Confirm your password</label>
+        <label for="confirmpassword" class="col-md-2 control-label" style="text-align: left">Confirm your password</label>
         <div class="col-md-2">
             <input ng-model="vm.confirmPassword" id="confirmpassword" name="confirmpassword"
                    type="password" class="form-control edit-dish-input"/>
@@ -64,7 +64,7 @@
                 <span>
                     <button class="btn btn-primary"
                             style="width:80px;margin-right: 10px"
-                            ng-click="vm.submit()">Save
+                            ng-click="vm.submitData(vm.user,false)">Save
                     </button>
                 </span>
         </div>

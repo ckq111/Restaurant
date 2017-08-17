@@ -30,7 +30,7 @@
                    ui-mask="999-999-9999" required/>
         </div>
         <span class="help-block has-error validation-msg-span-merchant"
-              ng-show="merchantForm.phoneNumber.$invalid">
+              ng-show="merchantForm.phoneNumber.$invalid && !merchantForm.phoneNumber.$pristine">
               Phone required
         </span>
     </div>
@@ -110,22 +110,30 @@
                        ng-model="vm.merchant.restName" class="form-control edit-dish-input" required/>
             </div>
         </div>
-        <!--Select City-->
         <div class="form-group">
-            <label for="city" class="col-md-2 control-label" style="text-align: left">Select city</label>
+            <label for="Autocomplete" class="col-md-2 control-label" style="text-align: left">City</label>
             <div class="col-md-2">
                 <input type="text"
-                       id="city" name="city"
-                       ng-model="vm.merchant.restName" class="form-control edit-dish-input" required/>
+                       id="Autocomplete" placeholder="Enter City" ng-model="vm.merchant.resAddcity" class="form-control edit-dish-input" ng-mouseleave="vm.showResult()" ng-autocomplete="vm.result1" details="vm.details1" options="vm.options1"/>
             </div>
         </div>
+
+        <!--Select City-->
+        <!--<div class="form-group">-->
+            <!--<label for="city" class="col-md-2 control-label" style="text-align: left">Select city</label>-->
+            <!--<div class="col-md-2">-->
+                <!--<input type="text"-->
+                       <!--id="city" name="city"-->
+                       <!--ng-model="vm.merchant.resAddcity" class="form-control edit-dish-input" required/>-->
+            <!--</div>-->
+        <!--</div>-->
         <!--// Select State-->
         <div class="form-group">
-            <label for="state" class="col-md-2 control-label" style="text-align: left">Select State</label>
+            <label for="state" class="col-md-2 control-label" style="text-align: left">State</label>
             <div class="col-md-2">
                 <input type="text"
                        id="state" name="state"
-                       ng-model="vm.merchant.restName" class="form-control edit-dish-input" required/>
+                       ng-model="vm.merchant.resAddState" class="form-control edit-dish-input" required/>
             </div>
         </div>
         <!--// Country Pre-defined-->
@@ -133,7 +141,7 @@
             <label class="col-md-2 control-label" style="text-align: left">Country</label>
             <div class="col-md-2">
                 <input type="text" value="USA"
-                       ng-model="vm.merchant.restName" class="form-control edit-dish-input" readonly/>
+                       class="form-control edit-dish-input" readonly/>
             </div>
         </div>
 
@@ -143,7 +151,7 @@
                 <span>
                     <button class="btn btn-primary"
                             style="width:80px;margin-right: 10px"
-                            ng-click="">Save
+                            ng-click="vm.submitData(vm.merchant,true)">Save
                     </button>
                 </span>
         </div>

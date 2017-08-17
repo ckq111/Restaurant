@@ -10,7 +10,8 @@ var app = angular.module('myRestaurant',
         "ui.router",
         "restaurantMenuMock",
         "ui.mask",
-        "ngMessages"
+        "ngMessages",
+        "ngAutocomplete"
     ]
     );
 
@@ -24,11 +25,11 @@ var app = angular.module('myRestaurant',
                 controller:"HomeViewController as vm"
             })
             .state("home.userSignUp",{
-                url:"/signUpUser",
+                url:"signUpUser",
                 templateUrl:"app/UserDetails/userSignUpForm.html"
             })
             .state("home.merchantSignUp",{
-                url:"/signUpMerchant",
+                url:"signUpMerchant",
                 templateUrl:"app/UserDetails/merchantSignUpForm.html"
             })
             .state("storeFront",{

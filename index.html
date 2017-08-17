@@ -14,7 +14,10 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
     <script data-require="ng-messages@1.3.16" data-semver="1.3.16" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-messages.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD4aNkFX07tovcjqn_zMfKw1gzra7e8jgU&libraries=places&sensor=false"></script>
+    <script src="libs/ngAutocomplete.js"></script>
     <script src="app/app.js"></script>
+
 
     <!-- Services -->
     <script src="common/services/common.services.js"></script>
@@ -33,8 +36,10 @@
 <div class="center">
     <img class="img-circle img-responsive" width="100" src="images/logo.png">
 </div>
-
-<nav class="navbar navbar-inverse custom-navs-style">
+<div class="topcorner">
+    <label id="uwelcome"></label>
+</div>
+<nav class="navbar navbar-inverse custom-navs-style" ng-controller="HomeNavBarController as vm">
     <div class="container">
         <a class="navbar-brand" ui-sref="home" style="font-size: larger; font-weight: bold">Sam's Kitchen Store Front</a>
         <div class="navbar-header">
@@ -48,10 +53,16 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div class="navbar-collapse collapse">
+        <div ng-if="vm.isMerchantLoggedIn()" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a ui-sref="storeFront">Menu</a></li>
                 <li><a ui-sref="newDish({dishId:0})">New Dish</a></li>
+                <!--<li><a ui-sref="emplEdit{emplId:0}"><i class="glyphicon glyphicon-plus"></i> Add Employee </a></li>-->
+            </ul>
+        </div>
+        <div ng-if="!vm.isMerchantLoggedIn()" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="storeFront">Restaurants</a></li>
                 <!--<li><a ui-sref="emplEdit{emplId:0}"><i class="glyphicon glyphicon-plus"></i> Add Employee </a></li>-->
             </ul>
         </div>

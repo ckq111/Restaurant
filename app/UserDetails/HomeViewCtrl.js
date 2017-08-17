@@ -2,8 +2,9 @@
  * Created by Smit on 8/15/2017.
  */
 (function () {
-    angular.module('myRestaurant')
-        .controller('HomeViewController',homeViewController);
+    var app = angular.module('myRestaurant')
+        app.controller('HomeViewController',homeViewController);
+        app.controller('HomeNavBarController',HomeNavBarController);
 
     function homeViewController() {
         var vm = this;
@@ -18,5 +19,35 @@
                 return false;
 
         }
+
+        vm.result1 = '';
+        vm.options1 = {
+            country: 'usa',
+            types: '(cities)'
+        };
+        vm.details1 = '';
+
+        vm.showResult = function () {
+          console.log(vm.result1 + vm.details1);
+          var details = vm.result1.split(',');
+          vm.merchant.resAddcity = details[0];
+          vm.merchant.resAddState = details[1];
+        };
+
+        vm.submitData = function (data,isMerchant) {
+            //console.log(data);
+            //console.log(data.userId);
+            if(typeof(Storage) !== "undefined"){
+                sessionStorage.uId = data.userId;
+                sessionStorage.isMerchant = isMerchant;
+                document.getElementById('uwelcome').innerHTML = "Welcome " + sessionStorage.uId;
+            }
+        };
+    }
+    function HomeNavBarController(){
+        var vm = this;
+        vm.isMerchantLoggedIn = function () {
+            return sessionStorage.isMerchant;
+        };
     }
 })();
