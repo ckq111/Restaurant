@@ -1,0 +1,14 @@
+<h1> {{vm.restaurant.name}} </h1>
+<div class="panel-body">
+    <div >
+        <a ui-sref=".menu"
+           ui-sref-active="active" class="btn btn-primary">
+            Menu
+        </a>
+        <a ui-sref=".reviews"
+           ui-sref-active="active" class="btn btn-primary">
+            Reviews
+        </a>
+    </div>
+    <div ui-view></div>
+</div>

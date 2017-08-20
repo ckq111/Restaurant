@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-lg-1" style="margin-left: -75px; width: 200px">
+
+    </div>
+    <div class="col-lg-7" style="padding: 10px">
+        <h2 class="well" style="margin-top: -5px">Food available @ Sam's Kitchen</h2>
+        <ul class="media-list" ng-repeat="restaurant in vm.restaurants | filter:{category: vm.selectedCategory}">
+            <li class="media menu-items">
+                {{$index+1}}.  <a ui-sref="restaurants.menu({resId: restaurant._id})">{{restaurant.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+

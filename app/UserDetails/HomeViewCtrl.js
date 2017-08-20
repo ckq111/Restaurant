@@ -4,14 +4,13 @@
 (function () {
     var app = angular.module('myRestaurant')
         app.controller('HomeViewController',homeViewController);
-        app.controller('HomeNavBarController',HomeNavBarController);
-
     function homeViewController() {
         var vm = this;
         vm.isGetttingStartClicked = false;
         vm.confirmPassword = '';
         vm.user = {};
         vm.merchant = {};
+        vm.isMerchant = false;
         vm.isPwdMatches = function () {
             if(vm.confirmPassword === '' || vm.user.password === vm.confirmPassword)
                 return true;
@@ -39,15 +38,9 @@
             //console.log(data.userId);
             if(typeof(Storage) !== "undefined"){
                 sessionStorage.uId = data.userId;
-                sessionStorage.isMerchant = isMerchant;
+                vm.isMerchant = isMerchant;
                 document.getElementById('uwelcome').innerHTML = "Welcome " + sessionStorage.uId;
             }
-        };
-    }
-    function HomeNavBarController(){
-        var vm = this;
-        vm.isMerchantLoggedIn = function () {
-            return sessionStorage.isMerchant;
         };
     }
 })();

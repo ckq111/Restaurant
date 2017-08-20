@@ -1,0 +1,8 @@
+<ul class="media-list" ng-repeat="dish in vm.menu | filter:{category: vm.selectedCategory}">
+    <li class="media menu-items">
+        {{$index+1}}.  {{dish.name}}
+        <span style="float: right"> {{dish.price | currency}}
+                        <img ng-src={{vm.getImgSrc(dish._id)}} class="img-toggle-details">
+        </span>
+    </li>
+</ul>

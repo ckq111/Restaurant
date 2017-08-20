@@ -21,8 +21,7 @@ var app = angular.module('myRestaurant',
 
             .state("home",{
                 url:"/",
-                templateUrl:"app/homeView.html",
-                controller:"HomeViewController as vm"
+                templateUrl:"app/homeView.html"
             })
             .state("home.userSignUp",{
                 url:"signUpUser",
@@ -70,6 +69,29 @@ var app = angular.module('myRestaurant',
                         return restaurantResource.getRestaurantInfoFor('dishes').get({dishId: dishId}).$promise;
                     }
                 }
+            })
+            .state("restaurantsList",{
+                url:"/restaurantsList",
+                templateUrl:"app/RestaurantInfo/restaurantsList.html",
+                controller:"ResListController as vm"
+            })
+            .state("restaurants",{
+                abstract:true,
+                url:"/restaurants/:resId",
+                templateUrl:"app/RestaurantInfo/restaurantDetails.html",
+                controller: "ResDetailsController as vm",
+                resolve:{
+                    restaurantResource :"restaurantResource",
+                    restaurant: function(restaurantResource,$stateParams) {
+
+                        var resId = $stateParams.resId;
+                        return restaurantResource.getRestaurantInfoUser('restaurants').get({resId: resId}).$promise;
+                    }
+                }
+            })
+            .state("restaurants.menu",{
+                url:"/menu",
+                templateUrl:"app/RestaurantInfo/restaurantMenuDetails.html"
             })
     }]);
 }());

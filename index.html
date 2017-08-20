@@ -29,9 +29,11 @@
     <script src="app/menuDetails/newDishEntryCtrl.js"></script>
     <script src="app/menuDetails/userReviewCtrl.js"></script>
     <script src="app/UserDetails/HomeViewCtrl.js"></script>
+    <script src="app/RestaurantInfo/restaurantsListCtrl.js"></script>
+    <script src="app/RestaurantInfo/restaurantDetails.js"></script>
 
 </head>
-<body>
+<body ng-controller="HomeViewController as vm">
 
 <div class="center">
     <img class="img-circle img-responsive" width="100" src="images/logo.png">
@@ -39,7 +41,7 @@
 <div class="topcorner">
     <label id="uwelcome"></label>
 </div>
-<nav class="navbar navbar-inverse custom-navs-style" ng-controller="HomeNavBarController as vm">
+<nav class="navbar navbar-inverse custom-navs-style">
     <div class="container">
         <a class="navbar-brand" ui-sref="home" style="font-size: larger; font-weight: bold">Sam's Kitchen Store Front</a>
         <div class="navbar-header">
@@ -53,16 +55,17 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div ng-if="vm.isMerchantLoggedIn()" class="navbar-collapse collapse">
+        <div ng-if="vm.isMerchant" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a ui-sref="storeFront">Menu</a></li>
                 <li><a ui-sref="newDish({dishId:0})">New Dish</a></li>
+
                 <!--<li><a ui-sref="emplEdit{emplId:0}"><i class="glyphicon glyphicon-plus"></i> Add Employee </a></li>-->
             </ul>
         </div>
-        <div ng-if="!vm.isMerchantLoggedIn()" class="navbar-collapse collapse">
+        <div ng-if="!vm.isMerchant" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a ui-sref="storeFront">Restaurants</a></li>
+                <li><a ui-sref="restaurantsList">Restaurants</a></li>
                 <!--<li><a ui-sref="emplEdit{emplId:0}"><i class="glyphicon glyphicon-plus"></i> Add Employee </a></li>-->
             </ul>
         </div>
