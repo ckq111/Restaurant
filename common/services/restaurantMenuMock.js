@@ -395,9 +395,6 @@
         var editingRegex2 = new RegExp(urlOp4+ "/[0-9][0-9]*",'');
         $httpBackend.whenGET(editingRegex2).respond(function(method,url,data){
             var menu = null;
-            console.log(menus);
-            console.log(dishes);
-            console.log(menus[0]);
             var parameters=url.split('/');
             var length = parameters.length;
             var id = parameters[length - 1];

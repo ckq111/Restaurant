@@ -11,6 +11,11 @@
         vm.user = {};
         vm.merchant = {};
         vm.isMerchant = false;
+
+        // Fake Test Input
+        sessionStorage.isMerchantLoggedIn = false;
+        sessionStorage.uId = 'Sam12#';
+
         vm.isPwdMatches = function () {
             if(vm.confirmPassword === '' || vm.user.password === vm.confirmPassword)
                 return true;

@@ -6,11 +6,17 @@
     //Everything related to customer reviews start from here!!!
     // *****************************************************
     angular.module('myRestaurant')
-        .controller('reviewController',['restaurantResource',ReviewController]);
+        .controller('reviewController',['restaurantResource','toastr',ReviewController]);
 
-    function ReviewController(restaurantResource) {
+    function ReviewController(restaurantResource,toastr) {
         var vm = this;
+        vm.newReview = {};
+        vm.newReview.name = sessionStorage.uId;
+        console.log(vm.newReview.name);
+        vm.isMerchantLogedIn = false;
+        vm.isReviewSubmitted = false;
 
+        console.log(vm.isMerchantLogedIn);
         restaurantResource.getRestaurantInfoFor('reviews').query(function(data){
             vm.reviews = data;
         });
@@ -22,7 +28,29 @@
                 return "images/yello-star.png";
             else
                 return "images/black-star.png";
-        }
+        };
+
+
+        vm.newReview.ratings = 0;
+        vm.max = 5;
+        vm.isReadonly = false;
+        vm.hoveringOver = function(value) {
+            vm.overStar = value;
+            vm.percent = 100 * (value / vm.max);
+        };
+
+        vm.ratingStates = [
+            {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'}
+        ];
+
+        vm.reviewSubmitted  = function () {
+            vm.reviews.unshift(vm.newReview);
+            vm.isReviewSubmitted = true;
+            toastr.success('Your Review is saved!', 'Thanks',{
+                closeButton: true,
+                timeOut:1000
+            });
+        };
     }
 
 })();

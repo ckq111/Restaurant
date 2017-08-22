@@ -13,5 +13,7 @@
         restaurantResource.getMenuDetailsFor(vm.restaurant.menuId).query(function(data){
             vm.menu = data;
         });
+
+
     }
 })();

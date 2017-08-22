@@ -11,7 +11,9 @@ var app = angular.module('myRestaurant',
         "restaurantMenuMock",
         "ui.mask",
         "ngMessages",
-        "ngAutocomplete"
+        "ngAutocomplete",
+        "ui.bootstrap",
+        "toastr"
     ]
     );
 
@@ -92,6 +94,11 @@ var app = angular.module('myRestaurant',
             .state("restaurants.menu",{
                 url:"/menu",
                 templateUrl:"app/RestaurantInfo/restaurantMenuDetails.html"
+            })
+            .state("restaurants.reviews",{
+                url:"/reviews",
+                templateUrl:"app/menuDetails/restReviewsView.html",
+                controller:"reviewController as vm"
             })
     }]);
 }());
