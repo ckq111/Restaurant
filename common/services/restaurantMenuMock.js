@@ -240,7 +240,7 @@
                  "description":"Crispy golden brown triangle pastry stuffed with mildly spiced potatoes and peas.",
                  "price": 4,
                  "preptime":5,
-                 "spicy":false,
+                 "sellCount":101,
                  "imageUrl": "images/csamosa.jpg"
              },
              {
@@ -250,7 +250,7 @@
                  "description": "Crispy golden brown triangle pastry stuffed with mildly spiced potatoes and peas.",
                  "price": 6,
                  "preptime":5,
-                 "spicy":true,
+                 "sellCount":80,
                  "imageUrl": "images/vsamosa.jpg"
              },
              {
@@ -260,7 +260,7 @@
                  "description": "Batter fried potato ball served in a bun.",
                  "price": 6,
                  "preptime":5,
-                 "spicy":true,
+                 "sellCount":60,
                  "imageUrl": "images/vadapav.jpg"
              },
              {
@@ -270,7 +270,7 @@
                  "description": "Assorted vegetable fritters fried with lentil flour batter.",
                  "price": 5,
                  "preptime":5,
-                 "spicy":false,
+                 "sellCount":12,
                  "imageUrl": "images/hara.jpg"
              },
              {
@@ -280,7 +280,7 @@
                  "description": "Chili fritters stuffed with spicy potatoes.",
                  "price": 8,
                  "preptime":5,
-                 "spicy":true,
+                 "sellCount":21,
                  "imageUrl": "images/cutmirch.jpg"
              },
              {
@@ -290,7 +290,7 @@
                  "description": "Boneless chicken cubes marinated in mild spices and fresh cream to give it a more soft and creamy flavor and baked in our tandoor.",
                  "price": 12,
                  "preptime":5,
-                 "spicy":true,
+                 "sellCount":25,
                  "imageUrl": "images/malaichkn.jpg"
              },
              {
@@ -300,7 +300,7 @@
                  "description": "Cubes of boneless chicken marinated in a variety of spices and yogurt and baked in our tandoor.",
                  "price": 11,
                  "preptime":5,
-                 "spicy":true,
+                 "sellCount":250,
                  "imageUrl": "images/chkntika.jpg"
              },
              {
@@ -310,7 +310,7 @@
                  "description": "Fresh ground spinach and fresh cottage cheese cubes cooked with fresh ginger, garlic and onion in a deliciously rich sauce.",
                  "price": 10,
                  "preptime":5,
-                 "spicy":false,
+                 "sellCount":60,
                  "imageUrl": "images/palakpaner.jpg"
              },
              {
@@ -320,7 +320,7 @@
                  "description": "Fresh cubes of cottage cheese in our Chef's special gravy with onions, green peppers and ginger cooked in a kadai.",
                  "price": 11,
                  "preptime":5,
-                 "spicy":true,
+                 "sellCount":34,
                  "imageUrl": "images/kadaipaner.jpg"
              },
              {
@@ -330,7 +330,7 @@
                  "description": "Red kidney beans cooked in a traditional Punjabi style gravy.",
                  "price": 8,
                  "preptime":5,
-                 "spicy":true,
+                 "sellCount":145,
                  "imageUrl": "images/rajma.jpg"
              }
 

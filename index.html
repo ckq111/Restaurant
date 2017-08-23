@@ -8,7 +8,7 @@
     <!-- Style Sheets -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css/AppStyle.css"/>
-    <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-resource/angular-resource.min.js"></script>
@@ -17,6 +17,8 @@
     <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="bower_components/chart.js/dist/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <script data-require="ng-messages@1.3.16" data-semver="1.3.16" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-messages.min.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD4aNkFX07tovcjqn_zMfKw1gzra7e8jgU&libraries=places&sensor=false"></script>
     <script src="libs/ngAutocomplete.js"></script>
@@ -35,12 +37,13 @@
     <script src="app/UserDetails/HomeViewCtrl.js"></script>
     <script src="app/RestaurantInfo/restaurantsListCtrl.js"></script>
     <script src="app/RestaurantInfo/restaurantDetails.js"></script>
+    <script src="app/DataAnalytics/sellAnalysisCtrl.js"></script>
 
 </head>
 <body ng-controller="HomeViewController as vm">
 
 <div class="center">
-    <img class="img-circle img-responsive" width="100" src="images/logo.png">
+    <img class="img-circle img-responsive" width="110" src="images/logo.png">
 </div>
 <div class="topcorner">
     <label id="uwelcome"></label>
@@ -63,7 +66,7 @@
             <ul class="nav navbar-nav">
                 <li><a ui-sref="storeFront">Menu</a></li>
                 <li><a ui-sref="newDish({dishId:0})">New Dish</a></li>
-
+                <li><a ui-sref="analytics">Sell Analysis</a></li>
                 <!--<li><a ui-sref="emplEdit{emplId:0}"><i class="glyphicon glyphicon-plus"></i> Add Employee </a></li>-->
             </ul>
         </div>

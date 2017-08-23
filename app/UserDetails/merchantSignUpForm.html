@@ -1,14 +1,14 @@
 <h1>open your menu online!!!</h1>
 
-<form name="merchantForm" class="form-horizontal">
+<form name="merchantForm" class="form-horizontal form-animate">
     <fieldset>
-        <legend>Persoanl Information</legend>
+        <legend>Personal Information</legend>
     <div class="form-group">
         <label class="col-md-2 control-label" style="text-align: left">UserID</label>
         <div class="col-md-2">
             <input type="text"
-                   placeholder="UserID"
-                   ng-model="vm.merchant.userId" class="form-control edit-dish-input"/>
+                   placeholder="MerchantID"
+                   ng-model="vm.merchant.merchantId" class="form-control edit-dish-input"/>
         </div>
     </div>
 
@@ -56,7 +56,7 @@
         <label for="confirmpassword" class="col-md-2 control-label" style="text-align: left">Confirm password</label>
         <div class="col-md-2">
             <input ng-model="vm.confirmPassword" id="confirmpassword" name="confirmpassword"
-                   type="password" class="form-control edit-dish-input"/>
+                   type="password" class="form-control edit-dish-input" required/>
         </div>
         <span ng-if="!vm.isPwdMatches()" class="help-block has-error validation-msg-span-merchant">Password doesn't match!</span>
     </div>
@@ -118,16 +118,6 @@
             </div>
         </div>
 
-        <!--Select City-->
-        <!--<div class="form-group">-->
-            <!--<label for="city" class="col-md-2 control-label" style="text-align: left">Select city</label>-->
-            <!--<div class="col-md-2">-->
-                <!--<input type="text"-->
-                       <!--id="city" name="city"-->
-                       <!--ng-model="vm.merchant.resAddcity" class="form-control edit-dish-input" required/>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--// Select State-->
         <div class="form-group">
             <label for="state" class="col-md-2 control-label" style="text-align: left">State</label>
             <div class="col-md-2">
@@ -149,12 +139,12 @@
     <div class="form-group">
         <div class="col-md-4 col-md-offset-2">
                 <span>
-                    <button class="btn btn-primary"
-                            style="width:80px;margin-right: 10px"
-                            ng-click="vm.submitData(vm.merchant,true)">Save
+                    <button class="btn-main btn btn-primary"
+                            style="margin-right: 10px"
+                            ng-disabled="merchantForm.$invalid"
+                            ng-click="vm.submitData(true)">SignUp
                     </button>
                 </span>
         </div>
     </div>
-
 </form>

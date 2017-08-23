@@ -13,7 +13,8 @@ var app = angular.module('myRestaurant',
         "ngMessages",
         "ngAutocomplete",
         "ui.bootstrap",
-        "toastr"
+        "toastr",
+        "chart.js"
     ]
     );
 
@@ -99,6 +100,11 @@ var app = angular.module('myRestaurant',
                 url:"/reviews",
                 templateUrl:"app/menuDetails/restReviewsView.html",
                 controller:"reviewController as vm"
+            })
+            .state("analytics",{
+                url:"/analytics",
+                templateUrl:"app/DataAnalytics/sellAnalysisView.html",
+                controller:"sellAnalysisCtrl as vm"
             })
     }]);
 }());

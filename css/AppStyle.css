@@ -83,8 +83,8 @@ h4{
 }
 .topcorner{
     position:absolute;
-    top:10px;
-    right:10px;
+    top:30px;
+    right:30px;
 }
 .edit-dish-input{
     width: 300px;
@@ -115,7 +115,7 @@ label{
     margin-bottom: 5px;
     background-color:transparent;
 }
-form{
+.form-animate{
     opacity: 1.0;
     animation-name: example;
     animation-duration: 1s;
@@ -130,3 +130,8 @@ form{
     font-size: larger;
 }
 
+.btn-main{
+    background-color: #2B542C;
+    font-size: 15px;
+    width: 125px;
+}

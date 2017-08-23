@@ -4,9 +4,9 @@
 (function () {
     'use strict';
     angular.module('myRestaurant')
-        .controller('menuItemInfoController',['dish',"$state",MenuItemInfoController]);
+        .controller('menuItemInfoController',['dish',"$state",'toastr',MenuItemInfoController]);
 
-    function MenuItemInfoController(dish,$state){
+    function MenuItemInfoController(dish,$state,toastr){
         var vm = this;
         vm.dish = dish;
 
@@ -26,8 +26,9 @@
         // on submit clicked dish.$save method will send POST request to $httpBackend
         vm.submit = function () {
             vm.dish.$save(function(){
-                //toastr.success("Record Saved Successfully");
-                alert("Saved Data Successfully!");
+                toastr.success('Thanks!', 'Dish Updated Successfully',{
+                    timeOut:2000
+                });
                 $state.go('storeFront');
             });
         }

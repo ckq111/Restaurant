@@ -12,8 +12,8 @@
         var vm = this;
         vm.newReview = {};
         vm.newReview.name = sessionStorage.uId;
-        console.log(vm.newReview.name);
-        vm.isMerchantLogedIn = false;
+
+        vm.isMerchantLogedIn = JSON.parse(sessionStorage.isMerchantLoggedIn);
         vm.isReviewSubmitted = false;
 
         console.log(vm.isMerchantLogedIn);
@@ -47,8 +47,7 @@
             vm.reviews.unshift(vm.newReview);
             vm.isReviewSubmitted = true;
             toastr.success('Your Review is saved!', 'Thanks',{
-                closeButton: true,
-                timeOut:1000
+                timeOut:2000
             });
         };
     }
