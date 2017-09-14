@@ -1,0 +1,40 @@
+<h1 style="color: #1b6d85">Login Here</h1>
+
+<form name="loginForm" class="form-horizontal form-animate">
+
+    <div class="form-group"
+         ng-class="{'has-error':loginForm.userId.$invalid && loginForm.userId.$dirty}">
+        <label class="col-md-2 control-label" style="text-align: left">UserID</label>
+        <div class="col-md-2">
+            <input type="text"
+                   placeholder="UserID" id="userId" name="userId"
+                   ng-model="vm.userId" class="form-control edit-dish-input" required/>
+        </div>
+        <div ng-messages="loginForm.userId.$error">
+            <span ng-show="loginForm.userId.$invalid && !loginForm.userId.$pristine" class="help-block has-error validation-msg-span">Prphavore enter here!</span>
+        </div>
+    </div>
+    <div class="form-group"
+         ng-class="{'has-error':loginForm.password.$invalid && loginForm.password.$dirty}">
+        <label for="password" class="col-md-2 control-label" style="text-align: left">Create a password</label>
+        <div class="col-md-2">
+            <input type="password" id="password" name="password"
+                   ng-model="vm.password" class="form-control edit-dish-input"
+                   required/>
+        </div>
+        <div ng-messages="loginForm.password.$error">
+            <span ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block has-error validation-msg-span">Enter Valid Password!</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn-main btn btn-primary"
+                            style="margin-right: 10px"
+                            ng-disabled="loginForm.$invalid"
+                            ng-click="vm.loginClicked()">Log In
+                    </button>
+                </span>
+        </div>
+    </div>
+</form>

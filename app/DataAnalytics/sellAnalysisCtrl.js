@@ -19,6 +19,7 @@ angular.module("myRestaurant")
             vm.labels = [];
             vm.data = [];
             vm.colors = [];
+            vm.series = ['Sales Analysis'];
             var newColor =
                 {
                     backgroundColor: "rgba(159,204,0, 1)",
@@ -36,7 +37,7 @@ angular.module("myRestaurant")
                 vm.colors.push(newColor);
             }
 
-            vm.series = ['Sales Analysis'];
+
         });
 
 

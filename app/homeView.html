@@ -1,24 +1,34 @@
-<h1> Welcome to Sam's Kitchen StoreFront </h1>
-<h2> View, Edit and Analyse your Online Menu! </h2>
-<h3> Observe user review for more business!!!</h3>
+<div style="background-color: lightgray; padding: 20px; height: auto; border: 1px solid greenyellow">
+    <h1> Welcome to Food Bazar </h1>
+    <h2> Browse our online menus from restaurants around you! </h2>
 
-<div ng-if="!vm.isGetttingStartClicked" >
-    <button class="btn btn-primary" ng-click="vm.isGetttingStartClicked = true">Getting Started</button>
-</div>
+    <div ng-if="!vm.isGetttingStartClicked" style="margin-top: 25px">
+        <button class="btn" ng-click="vm.isGetttingStartClicked = true">Getting Started</button>
+    </div>
 
-<div ng-if="vm.isGetttingStartClicked">
-    <div class="panel-body">
-        <div >
-            <a ui-sref=".userSignUp"
-               ui-sref-active="active" class="btn-main btn btn-primary">
-                New User
-            </a>
-            <a ui-sref=".merchantSignUp"
-               ui-sref-active="active" class="btn-main btn btn-primary">
-                New Merchant
-            </a>
+    <div ng-if="vm.isGetttingStartClicked">
+        <div class="panel-body">
+            <div >
+                <a ui-sref=".login"
+                   ui-sref-active="active" class="btn-main btn btn-primary">
+                    Sign in
+                </a>
+                <label style="margin-left: 25px; margin-right: 25px">OR</label>
+                <a ui-sref=".userSignUp"
+                   ui-sref-active="active" class="btn-main btn btn-primary">
+                    New User
+                </a>
+                <a ui-sref=".merchantSignUp"
+                   ui-sref-active="active" class="btn-main btn btn-primary">
+                    New Merchant
+                </a>
+
+
+            </div>
+            <div style="color: green" ui-view></div>
         </div>
-        <div ui-view></div>
     </div>
 </div>
+
+
 

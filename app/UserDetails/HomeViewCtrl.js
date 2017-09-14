@@ -10,8 +10,8 @@
         vm.confirmPassword = '';
         vm.user = {};
         vm.merchant = {};
-        vm.isMerchant = true;
-        sessionStorage.isMerchantLoggedIn = true;
+        vm.isMerchant = false;
+        sessionStorage.isMerchantLoggedIn = false;
 
         // Fake Test Input
         //sessionStorage.isMerchantLoggedIn = false;
@@ -63,6 +63,12 @@
                 sessionStorage.isMerchantLoggedIn = isMerchant;
                 document.getElementById('uwelcome').innerHTML = "Welcome " + sessionStorage.uId;
             }
+        };
+        // OK everything related to Login page starts from here.
+        vm.userId = null;
+        vm.password = null;
+        vm.loginClicked = function(){
+          console.log(vm.userId + "    " + vm.password);
         };
     }
 })();

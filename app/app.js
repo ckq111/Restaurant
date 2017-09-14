@@ -14,7 +14,8 @@ var app = angular.module('myRestaurant',
         "ngAutocomplete",
         "ui.bootstrap",
         "toastr",
-        "chart.js"
+        "chart.js",
+        "lettersOnlyApp"
     ]
     );
 
@@ -33,6 +34,10 @@ var app = angular.module('myRestaurant',
             .state("home.merchantSignUp",{
                 url:"signUpMerchant",
                 templateUrl:"app/UserDetails/merchantSignUpForm.html"
+            })
+            .state("home.login",{
+                url:"login",
+                templateUrl:"app/LoginPage/LoginPage.html"
             })
             .state("storeFront",{
                 url:"/storedetails",

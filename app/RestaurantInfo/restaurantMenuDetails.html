@@ -1,8 +1,41 @@
+<div class="container">
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog" style="width: 700px;">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{vm.dish.name}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <p>{{vm.dish.description}}</p>
+                        </div>
+                        <div class="col-sm-4 col-sm-offset-1">
+                            <img ng-src="{{vm.dish.imageUrl}}" height="200" width="300"/>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-sm" ng-click="vm.updatePrice(true)">+</button>
+                    <input class="input-sm" type="number" value="1" ng-model="vm.selectedQuantity">
+                    <button class="btn btn-danger btn-sm" ng-click="vm.updatePrice(false)">-</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">{{vm.addBagText}}</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <ul class="media-list" ng-repeat="dish in vm.menu | filter:{category: vm.selectedCategory}">
     <li class="media menu-items">
         {{$index+1}}.  {{dish.name}}
         <span style="float: right"> {{dish.price | currency}}
-                        <img ng-src={{vm.getImgSrc(dish._id)}} class="img-toggle-details">
+            <button class="btn btn-primary btn-sm btn-main" data-toggle="modal" data-target="#myModal" style="margin-left: 10px" ng-click="vm.setSelectedDish(dish._id)">Add to cart</button>
         </span>
+
     </li>
 </ul>

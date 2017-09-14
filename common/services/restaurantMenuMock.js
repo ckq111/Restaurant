@@ -8,7 +8,7 @@
         var restaurants = [
             {
                 "_id":1,
-                "name":"Sam's Kitchen",
+                "name":"The Indie Kitchen",
                 "merchant":"merchant123",
                 "type":"Indian",
                 "rating":4,
@@ -16,7 +16,23 @@
             },
             {
                 "_id":2,
-                "name":"Hell's Kitchen",
+                "name":"Joe's Pizza",
+                "merchant":"daredevil123",
+                "type":"Mexican",
+                "rating":1,
+                "menuId":1
+            },
+            {
+                "_id":2,
+                "name":"The Greencastle",
+                "merchant":"daredevil123",
+                "type":"Mexican",
+                "rating":1,
+                "menuId":1
+            },
+            {
+                "_id":2,
+                "name":"Chillies Sandwiches",
                 "merchant":"daredevil123",
                 "type":"Mexican",
                 "rating":1,

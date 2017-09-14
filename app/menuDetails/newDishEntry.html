@@ -6,7 +6,7 @@
         <div class="col-md-2">
             <input type="text" id="dishName" name="dishName"
                    placeholder="Give Some mouth watering name"
-                   ng-model="vm.dish.name" class="form-control edit-dish-input" required/>
+                   ng-model="vm.dish.name" class="form-control edit-dish-input" letters-only required/>
         </div>
         <span ng-show="dishForm.dishName.$invalid && !dishForm.dishName.$pristine" class="help-block validation-msg-span">Enter a valid Dish name.</span>
     </div>
