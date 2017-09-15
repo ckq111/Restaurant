@@ -3,8 +3,8 @@
  */
 (function () {
     var app = angular.module('myRestaurant')
-        app.controller('HomeViewController',['toastr','$state',homeViewController]);
-    function homeViewController(toastr,$state) {
+        app.controller('HomeViewController',['fetchDataService','toastr','$state',homeViewController]);
+    function homeViewController(fetchDataService,toastr,$state) {
         var vm = this;
         vm.isGetttingStartClicked = false;
         vm.confirmPassword = '';
@@ -67,8 +67,21 @@
         // OK everything related to Login page starts from here.
         vm.userId = null;
         vm.password = null;
+
         vm.loginClicked = function(){
-          console.log(vm.userId + "    " + vm.password);
+            vm.user = null;
+            vm.user = fetchDataService.getUserData().query({ userId : vm.userId},function (data) {
+                if(data.length){
+                    vm.user = data['0'];
+                    if(vm.user.password === vm.password)
+                        $state.go('restaurantsList');
+                    else
+                        console.log("wrong passcode");
+                }
+                else
+                    console.log("No record found!!!");
+            });
+
         };
     }
 })();

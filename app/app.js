@@ -6,7 +6,8 @@
 "use strict";
 
 var app = angular.module('myRestaurant',
-    ["common.services",
+    [   "ngResource",
+        "common.services",
         "ui.router",
         "restaurantMenuMock",
         "ui.mask",

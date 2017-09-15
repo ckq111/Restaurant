@@ -458,5 +458,11 @@
 
         });
         $httpBackend.whenGET(/app/).passThrough();
+
+        //var passThrough = "http://localhost:3000/users/?&userId=user123";
+        var passThrough = "http://localhost:3000/users/";
+        var passThroughExp = new RegExp(passThrough+ ".",'');
+
+        $httpBackend.whenGET(passThroughExp).passThrough();
     });
 }());
