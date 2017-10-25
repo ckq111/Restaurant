@@ -67,7 +67,6 @@
         // OK everything related to Login page starts from here.
         vm.userId = null;
         vm.password = null;
-
         vm.loginClicked = function(){
             vm.user = null;
             vm.user = fetchDataService.getUserData().query({ userId : vm.userId},function (data) {
